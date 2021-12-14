@@ -14,6 +14,66 @@ namespace W14_Praktikum_VSCode_Catherine_Lim_0706022110002
             long inputAngka = Convert.ToInt32(Console.ReadLine());
             return inputAngka;
         }
+        public static void OutputPrima(long inputUser)
+        {
+            long maks, y, faktor;
+            maks = inputUser * inputUser;
+            long variableYangDiCek = 1;
+            long hitungAngkaPrint = 0;
+            int n = 1;
+            while (n <= maks)
+            {
+                faktor = 0;
+                for (y = variableYangDiCek; y >= 1; y--)
+                {
+                    if (variableYangDiCek % y == 0)
+                    {
+                        faktor++;
+                    }
+                }
+                if (faktor == 2)
+                {
+                    Console.Write("{0,5}" + " ", variableYangDiCek);
+                    if (n % inputUser == 0)
+                    {
+                        Console.WriteLine();
+                    }
+                    hitungAngkaPrint++;
+                    n++;
+                }
+                variableYangDiCek++;
+            }
+        }
+        public static void OutputBukanPrima(long inputUser)
+        {
+            long maks, y, faktor;
+            maks = inputUser * inputUser;
+            long variableYangDiCek = 1;
+            long hitungAngkaPrint = 0;
+            int n = 1;
+            while (n <= maks)
+            {
+                faktor = 0;
+                for (y = variableYangDiCek; y >= 1; y--)
+                {
+                    if (variableYangDiCek % y == 0)
+                    {
+                        faktor++;
+                    }
+                }
+                if (faktor != 2)
+                {
+                    Console.Write("{0,5}" + " ", variableYangDiCek);
+                    if (n % inputUser == 0)
+                    {
+                        Console.WriteLine();
+                    }
+                    hitungAngkaPrint++;
+                    n++;
+                }
+                variableYangDiCek++;
+            }
+        }
         static void Main(string[] args)
         {
             Catherine();
@@ -21,6 +81,7 @@ namespace W14_Praktikum_VSCode_Catherine_Lim_0706022110002
             long inputUser = InputUser();
             jumlahFaktor = 0;
             pengecekBilangan = 1;
+            
             do
             {
                 if (inputUser % pengecekBilangan == 0)
@@ -32,64 +93,11 @@ namespace W14_Praktikum_VSCode_Catherine_Lim_0706022110002
             while (pengecekBilangan <= inputUser);
             if (jumlahFaktor == 2)
             {
-                long maks, y, faktor;
-                maks = inputUser * inputUser;
-                long variableYangDiCek = 1;
-                long hitungAngkaPrint = 0;
-                int n = 1;
-                while (n <= maks)
-                {
-                    faktor = 0;
-                    for (y = variableYangDiCek; y >= 1; y--)
-                    {
-                        if (variableYangDiCek % y == 0)
-                        {
-                            faktor++;
-                        }
-                    }
-                    if (faktor == 2)
-                    {
-                        Console.Write("{0,5}" + " ", variableYangDiCek);
-                        if (n % inputUser == 0)
-                        {
-                            Console.WriteLine();
-                        }
-                        hitungAngkaPrint++;
-                        n++;
-                    }
-                    variableYangDiCek++;
-                }
+                OutputPrima(inputUser);
             }
             else
             {
-                long maks, y, faktor;
-                maks = inputUser * inputUser;
-                long variableYangDiCek = 1;
-                long hitungAngkaPrint = 0;
-                int n = 1;
-                while (n <= maks)
-                {
-                    faktor = 0;
-                    for (y = variableYangDiCek; y >= 1; y--)
-                    {
-                        if (variableYangDiCek % y == 0)
-                        {
-                            faktor++;
-                        }
-                    }
-                    if (faktor != 2)
-                    {
-                        Console.Write("{0,5}"+ " ", variableYangDiCek);
-                        if (n % inputUser == 0)
-                        {
-                            Console.WriteLine();
-                        }
-                        hitungAngkaPrint++;
-                        n++;
-                    }
-                    variableYangDiCek++;
-                }
-            
+                OutputBukanPrima(inputUser);
             }
         }
     }
